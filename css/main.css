@@ -12,7 +12,8 @@ body {
     font-size: 15px;
 }
 
-#home .home, #training .training, #faq .faq, #resources .resources, #blog .blog, #report .report, #contact .contact, #conventional .conventional {
+#home .home, #training .training, #faq .faq, #resources .resources, #blog .blog, #report .report,
+#contact .contact, #conventional-secondary .conventional-secondary, #conventional .conventional {
     background: var(--bg-color);
     color:white;
     text-decoration:none;

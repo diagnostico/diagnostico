@@ -12,7 +12,7 @@
     <script src="js/svg.min.js"></script>
     <script src="js/flowsvg.min.js"></script>
 </head>
-<body id="conventional">
+<body id="conventional-secondary">
 <div id="parent">
     <div id="nav-placeholder"></div>
     <script>
@@ -20,119 +20,23 @@
             $("#nav-placeholder").load("nav.html");
         });
     </script>
-    <div id="drawing" style="margin:30px auto; width:900px;"></div>
+    <div id="drawing" style="margin:20px auto; width:90%;"></div>
 
     <script>
-        ///////////////////// start flow chart ////////////////////////////////////////////////////////////
         flowSVG.draw(SVG('drawing').size(900, 1100));
         flowSVG.config({
             interactive: true,
-            showButtons: false,
+            showButtons: true,
             connectorLength: 60,
-            scrollto: true
+            /*scrollto: true,*/
+            arrowColour: 'darkblue',
+            decisionFill: 'blue',
+            processFill: 'blue',
+            finishFill: 'blue',
+            defaultFontSize: '12'
         });
         flowSVG.shapes(
             [
-                {
-                    label: 'knowPolicy',
-                    type: 'decision',
-                    text: [
-                        'Do you know the ',
-                        'Open Access policy',
-                        'of the journal?'
-                    ],
-                    yes: 'hasOAPolicy',
-                    no: 'checkPolicy'
-                },
-                {
-                    label: 'hasOAPolicy',
-                    type: 'decision',
-                    text: [
-                        'Does it have Open',
-                        'Access paid option or is it an',
-                        ' Open Access journal?'
-                    ],
-                    yes: 'CCOffered',
-                    no: 'canWrap'
-                },
-                {
-                    label: 'CCOffered',
-                    type: 'decision',
-                    text: [
-                        'Creative Commons licence',
-                        'CC-BY offered?'
-                    ],
-                    yes: 'canComply',
-                    no: 'checkGreen'
-                },
-                {
-                    label: 'canComply',
-                    type: 'finish',
-                    text: [
-                        'Great - can comply. ',
-                        'Please complete'
-                    ],
-                    links: [
-                        {
-                            text: 'application form',
-                            url: 'http://www.jqueryscript.net/chart-graph/Simple-SVG-Flow-Chart-Plugin-with-jQuery-flowSVG.html',
-                            target: '_blank'
-                        }
-                    ],
-                    tip: {
-                        title: 'HEFCE Note',
-                        text:
-                            [
-                                'You must put your',
-                                'accepted version into',
-                                'WRAP and/or subject',
-                                'repository within 3 months',
-                                'of acceptance.'
-                            ]
-                    }
-                },
-                {
-                    label: 'canWrap',
-                    type: 'decision',
-                    text: [
-                        'Can you archive in ',
-                        'WRAP and/or Subject',
-                        'repository?'
-                    ],
-                    yes: 'checkTimeLimits',
-                    no: 'doNotComply'
-                },
-                {
-                    label: 'doNotComply',
-                    type: 'finish',
-                    text: [
-                        'You do not comply at all. ',
-                        'Is this really the only journal',
-                        ' you want to use? ',
-                        'Choose another or make ',
-                        'representations to journal'
-                    ],
-                    tip: {
-                        title: 'HEFCE Note',
-                        text:
-                            [
-                                'If you really have to go',
-                                'this route you must log',
-                                'the exception in WRAP on',
-                                'acceptance in order',
-                                'to comply.'
-                            ]
-                    }
-                },
-                {
-                    label: 'checkGreen',
-                    type: 'process',
-                    text: [
-                        'Check the journal\'s policy',
-                        'on the green route'
-                    ],
-                    next: 'journalAllows',
-                },
                 {
                     label: 'journalAllows',
                     type: 'decision',
@@ -217,7 +121,6 @@
                             target: '_blank'
                         }
                     ],
-                    next: 'hasOAPolicy'
                 }
             ]);
     </script>
