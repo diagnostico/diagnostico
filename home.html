@@ -8,11 +8,23 @@
     <script src="js/jquery-2.1.3.min.js"></script>
 </head>
 <body id="home">
-<div id="nav-placeholder" />
-<script>
-    $(function(){
-        $("#nav-placeholder").load("nav.html");
-    });
-</script>
+<div id="parent">
+    <div id="nav-placeholder"></div>
+    <script>
+        $(function () {
+            $("#nav-placeholder").load("nav.html");
+        });
+    </script>
+    <div>
+        <button class="button" id="conventional"><span>Start troubleshooting </span></button><br>
+        <script>
+            $('#conventional').click(function () {
+                window.location.href = 'troubleshooting.html';
+            });
+        </script>
+        <button class="button"><span>Start from where you left </span></button><br>
+        <button class="button"><span>Historical Data </span></button>
+    </div>
+</div>
 </body>
 </html>

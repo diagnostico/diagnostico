@@ -12,8 +12,8 @@ body {
     font-size: 15px;
 }
 
-#home .home, #training .training, #faq .faq, #resources .resources, #blog .blog, #report .report,
-#contact .contact, #conventional-secondary .conventional-secondary, #conventional .conventional {
+#troubleshooting .troubleshooting, #home .home, #training .training, #faq .faq, #resources .resources, #blog .blog, #report .report,
+#contact .contact, #conventional-biological .conventional-biological, #conventional .conventional, #conventional-SludgeBulking .conventional-SludgeBulking {
     background: var(--bg-color);
     color:white;
     text-decoration:none;
